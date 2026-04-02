@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konrad Soares | From Zero to Hero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --gold: #d4af37;
+            --text: #eee;
+            --text-muted: #aaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--text), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 10%;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+
+        .section-title span {
+            display: block;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* About */
+        .about {
+            background: var(--secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            top: 20px;
+            left: 20px;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Timeline */
+        .timeline {
+            background: var(--primary);
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--gold);
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: calc(50% + 2rem);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: calc(50% + 2rem);
+        }
+
+        .timeline-content {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 350px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-year {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        /* Achievements */
+        .achievements {
+            background: var(--secondary);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--primary);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-card h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Book Section */
+        .book {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            text-align: center;
+        }
+
+        .book-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .book-cover {
+            width: 300px;
+            height: 450px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
+            margin: 2rem auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .book-cover h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .book-cover .author {
+            color: var(--primary);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .book-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--primary);
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: var(--gold);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-container::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">KS</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#timeline">Journey</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#book">Book</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle">DevOps Engineer & Entrepreneur</p>
+            <h1>Konrad Soares</h1>
+            <p class="tagline">From Zero to Hero: A Journey Through Technology, Innovation & Leadership</p>
+            <a href="#about" class="cta-btn">Discover My Story</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title"><span>01</span>About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop" alt="Konrad Soares">
+            </div>
+            <div class="about-text">
+                <h3>Building the Future of Tech</h3>
+                <p>I'm a DevOps Engineer at OpenText in Ireland, CEO of Surebot, and a passionate technologist dedicated to automating everything and solving complex problems.</p>
+                <p>With years of experience in cloud infrastructure, CI/CD pipelines, and scalable systems, I've transformed my journey from humble beginnings into a career marked by continuous learning and achievement.</p>
+                <p>My mission: Help others navigate their own tech journey through practical knowledge and real-world experience.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Exp</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline" id="timeline">
+        <h2 class="section-title"><span>02</span>My Journey</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <p class="timeline-year">2024 - Present</p>
+                    <h3 class="timeline-title">CEO, Surebot</h3>
+                    <p class="timeline-desc">Leading innovation in automation and AI-powered solutions. Building the next generation of tech services.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <p class="timeline-year">2022 - Present</p>
+                    <h3 class="timeline-title">DevOps Engineer, OpenText</h3>
+                    <p class="timeline-desc">Designing and maintaining enterprise-scale infrastructure. Leading CI/CD transformations.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <p class="timeline-year">2020 - 2022</p>
+                    <h3 class="timeline-title">Site Reliability Engineer</h3>
+                    <p class="timeline-desc">Built robust monitoring systems and automated incident response for 99.99% uptime.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <p class="timeline-year">2018 - 2020</p>
+                    <h3 class="timeline-title">Cloud Engineer</h3>
+                    <p class="timeline-desc">Migrated legacy systems to AWS/Azure. First encounter with DevOps culture.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <p class="timeline-year">2016 - 2018</p>
+                    <h3 class="timeline-title">Systems Administrator</h3>
+                    <p class="timeline-desc">Started professional journey. Linux, networking, and the foundations of infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements" id="achievements">
+        <h2 class="section-title"><span>03</span>Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">🏆</div>
+                <h3>MSc in Computer Science</h3>
+                <p>Specialization in DevOps - Graduated 2026. Research focused on automated scaling and cloud-native architectures.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🚀</div>
+                <h3>Built Custom Search API</h3>
+                <p>Created a high-performance DuckDuckGo scraper (1 second response time, free, unlimited) - replacing expensive SerpAPI.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">💡</div>
+                <h3>Automation First</h3>
+                <p>Automated 90% of repetitive tasks. Built self-healing infrastructure and intelligent monitoring systems.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">📈</div>
+                <h3>OpenClaw Pioneer</h3>
+                <p>Early adopter and contributor to OpenClaw. Building custom tools and skills for AI-powered automation.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🔐</div>
+                <h3>Security Focused</h3>
+                <p>Implemented zero-trust architecture, regular security audits, and hardened infrastructure.</p>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">📚</div>
+                <h3>Author & Educator</h3>
+                <p>Writing "From Zero to Hero" - a practical guide to DevOps career progression and troubleshooting.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="book" id="book">
+        <h2 class="section-title"><span>04</span>My Book</h2>
+        <div class="book-content">
+            <div class="book-cover">
+                <h2>From Zero<br>to Hero</h2>
+                <p class="author">Konrad Soares</p>
+            </div>
+            <p class="book-desc">A practical guide to building a successful career in technology. Learn from real-world experiences, troubleshooting techniques, and the path from junior engineer to leader.</p>
+            <p class="book-desc">Part memoir, part career guide - everything I wish I knew when starting out.</p>
+            <a href="#contact" class="cta-btn">Get Early Access</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title"><span>05</span>Let's Connect</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Interested in collaboration, speaking, or just want to say hi?</p>
+        <div class="contact-links">
+            <a href="mailto:konrad@konradsoares.com">Email</a>
+            <a href="https://linkedin.com/in/konradsoares">LinkedIn</a>
+            <a href="https://github.com/clawdney">GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Konrad Soares. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-content, .achievement-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(26, 26, 46, 0.98)';
+            } else {
+                nav.style.background = 'rgba(26, 26, 46, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
