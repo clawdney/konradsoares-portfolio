@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konrad Soares | From Zero to Hero</title>
+    <title>Konrad Soares | DevOps & Cloud Expert</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
+            --primary: #0f0f1a;
+            --secondary: #1a1a2e;
             --accent: #e94560;
             --gold: #d4af37;
             --text: #eee;
@@ -32,16 +32,15 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(26, 26, 46, 0.95);
+            background: rgba(15, 15, 26, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -56,14 +55,14 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
@@ -73,7 +72,6 @@
             color: var(--gold);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -81,93 +79,49 @@
             justify-content: center;
             text-align: center;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.8; }
-        }
-
-        .hero-content {
-            z-index: 1;
-            max-width: 800px;
             padding: 2rem;
         }
 
-        .hero h1 {
+        .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--text), var(--gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero .tagline {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
             font-weight: 300;
         }
 
         .hero .subtitle {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 1rem;
         }
 
-        .cta-btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gold);
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            transition: all 0.3s;
-            margin-top: 1rem;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Sections */
         section {
-            padding: 6rem 10%;
+            padding: 4rem 5%;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             color: var(--gold);
         }
 
         .section-title span {
             display: block;
-            font-size: 1rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
@@ -181,211 +135,126 @@
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .about-image::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--gold);
-            top: 20px;
-            left: 20px;
-            border-radius: 10px;
-            z-index: -1;
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
+        .about-content p {
             color: var(--text-muted);
-            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
-        /* Timeline */
-        .timeline {
-            background: var(--primary);
-        }
-
-        .timeline-container {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            padding: 2rem 1rem;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: var(--gold) var(--secondary);
-        }
-
-        .timeline-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .timeline-container::-webkit-scrollbar-track {
-            background: var(--secondary);
-            border-radius: 10px;
-        }
-
-        .timeline-container::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 10px;
-        }
-
-        .timeline-item {
-            flex: 0 0 300px;
-            position: relative;
-            padding: 1.5rem;
-            background: var(--secondary);
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.3s;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        .timeline-content {
-            background: var(--secondary);
-            padding: 1.5rem;
-            border-radius: 10px;
-            max-width: 350px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-        }
-
-        .timeline-year {
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .timeline-title {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-
-        .timeline-desc {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: var(--gold);
-            border-radius: 50%;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-        }
-
-        /* Achievements */
-        .achievements {
-            background: var(--secondary);
-        }
-
-        .achievements-grid {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-            scroll-behavior: smooth;
+        /* Cards Grid */
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
+            padding: 0 1rem;
         }
 
-        .achievement-card {
-            background: var(--primary);
-            padding: 2rem;
-            border-radius: 10px;
+        .card {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.3s;
         }
 
-        .achievement-card:hover {
+        .card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
         }
 
-        .achievement-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-card h3 {
+        .card h3 {
             color: var(--gold);
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
-        .achievement-card p {
+        .card p {
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        /* Book Section */
-        .book {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            text-align: center;
+        .card .year {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        .book-content {
-            max-width: 700px;
+        /* Skills */
+        .skills-section {
+            background: var(--secondary);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            max-width: 900px;
             margin: 0 auto;
         }
 
+        .skill-tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .cert-card {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-card h3 {
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Book */
+        .book {
+            background: var(--secondary);
+            text-align: center;
+        }
+
         .book-cover {
-            width: 300px;
-            height: 450px;
+            width: 220px;
+            height: 320px;
             background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
             margin: 2rem auto;
             border-radius: 10px;
@@ -393,27 +262,27 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            padding: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .book-cover h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .book-cover .author {
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 0.9rem;
             opacity: 0.8;
         }
 
-        .book-desc {
+        .book p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
         }
 
         /* Contact */
@@ -425,17 +294,18 @@
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .contact-links a {
             color: var(--text);
             text-decoration: none;
-            padding: 1rem 2rem;
+            padding: 0.75rem 1.5rem;
             border: 1px solid var(--gold);
             border-radius: 50px;
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         .contact-links a:hover {
@@ -443,13 +313,12 @@
             color: var(--primary);
         }
 
-        /* Footer */
         footer {
             background: var(--secondary);
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* Responsive */
@@ -458,47 +327,18 @@
                 display: none;
             }
 
-            .about-content {
+            section {
+                padding: 3rem 5%;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .cards-grid, .certs-grid {
                 grid-template-columns: 1fr;
             }
-
-            .timeline-container::before {
-                left: 20px;
-            }
-
-            .timeline-item,
-            .timeline-item:nth-child(even) {
-                padding-left: 50px;
-                padding-right: 0;
-                justify-content: flex-start;
-            }
-
-            .timeline-dot {
-                left: 20px;
-            }
-
-            section {
-                padding: 4rem 5%;
-            }
         }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeIn 0.8s forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
@@ -506,8 +346,9 @@
         <div class="logo">KS</div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#timeline">Journey</a></li>
-            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certs">Certs</a></li>
             <li><a href="#book">Book</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -515,149 +356,125 @@
 
     <section class="hero">
         <div class="hero-content">
-            <p class="subtitle">DevOps Engineer & Entrepreneur</p>
+            <p class="subtitle">Principal Cloud Engineer & Entrepreneur</p>
             <h1>Konrad Soares</h1>
             <p class="tagline">From Zero to Hero: A Journey Through Technology, Innovation & Leadership</p>
-            <a href="#about" class="cta-btn">Discover My Story</a>
+            <a href="#about" style="display:inline-block;padding:0.8rem 2rem;background:var(--gold);color:var(--primary);text-decoration:none;font-weight:600;border-radius:50px;text-transform:uppercase;letter-spacing:1px;font-size:0.85rem;">Discover My Story</a>
         </div>
     </section>
 
     <section class="about" id="about">
         <h2 class="section-title"><span>01</span>About Me</h2>
         <div class="about-content">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop" alt="Konrad Soares">
-            </div>
-            <div class="about-text">
-                <h3>Building the Future of Tech</h3>
-                <p>I'm a DevOps Engineer at OpenText in Ireland, CEO of Surebot, and a passionate technologist dedicated to automating everything and solving complex problems.</p>
-                <p>With years of experience in cloud infrastructure, CI/CD pipelines, and scalable systems, I've transformed my journey from humble beginnings into a career marked by continuous learning and achievement.</p>
-                <p>My mission: Help others navigate their own tech journey through practical knowledge and real-world experience.</p>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-number">12+</div>
-                        <div class="stat-label">Years Exp</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">30+</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Companies</div>
-                    </div>
-                </div>
-            </div>
+            <p>Principal Cloud Engineer with 20+ years across software, infrastructure, and cloud platforms. Currently focused on DevOps, backend engineering, and AI-driven automation at OpenText Ireland.</p>
+            <p>Strong background in designing and operating distributed systems, cloud-native applications, and CI/CD pipelines. Proven ability to operate at both architecture and hands-on engineering levels.</p>
+            <p>CEO of Surebot - building the next generation of automation and AI-powered solutions.</p>
         </div>
     </section>
 
-    <section class="timeline" id="timeline">
+    <section id="journey">
         <h2 class="section-title"><span>02</span>My Journey</h2>
-        <div class="timeline-container">
-            <div class="timeline-item">
-            <div class="timeline-item">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <p class="timeline-year">2021 - Present</p>
-                    <h3 class="timeline-title">OpenText Ireland</h3>
-                    <p class="timeline-desc">Principal Cloud Support Specialist (2024→), Lead (2022-2024), Quality Service Management (2022), Senior Cloud Support (2021). Cloud platform reliability, AIOps platform design (MSc), mentoring, CI/CD improvements.</p>
-                </div>
+        <div class="cards-grid">
+            <div class="card">
+                <p class="year">2021 - Present</p>
+                <h3>OpenText Ireland</h3>
+                <p>Principal Cloud Support Specialist. Progressed from Senior → Quality Service Management → Lead → Principal. Led cloud platform reliability, AIOps platform design (MSc), mentoring, CI/CD improvements.</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <p class="timeline-year">2019 - 2021</p>
-                    <h3 class="timeline-title">Freelancer - Automation Developer</h3>
-                    <p class="timeline-desc">Node.js/PHP backend apps, AWS infrastructure (EC2, RDS, VPC), deployment workflows, SSL configuration, full-stack integration.</p>
-                </div>
+            <div class="card">
+                <p class="year">2019 - 2021</p>
+                <h3>Freelancer</h3>
+                <p>Automation Developer. Node.js/PHP backend apps, AWS infrastructure (EC2, RDS, VPC), deployment workflows, SSL configuration, full-stack integration.</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <p class="timeline-year">2017 - 2018</p>
-                    <h3 class="timeline-title">Nexxt Level Solutions</h3>
-                    <p class="timeline-desc">Cloud & Backup Solutions Engineer. Veeam backup/disaster recovery, hybrid cloud (on-prem + AWS), AWS VPC/S3/Glacier, pre-sales technical design.</p>
-                </div>
+            <div class="card">
+                <p class="year">2017 - 2018</p>
+                <h3>Nexxt Level Solutions</h3>
+                <p>Cloud & Backup Solutions Engineer. Veeam backup/disaster recovery, hybrid cloud (on-prem + AWS), VPC/S3/Glacier, pre-sales technical design.</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <p class="timeline-year">2009 - 2016</p>
-                    <h3 class="timeline-title">Hewlett-Packard</h3>
-                    <p class="timeline-desc">Service Delivery Manager / Technical Leader. Led enterprise infrastructure for global clients (Vale, Unilever). WebSphere, WebLogic, JBoss, Apache/Tomcat, IIS. SLA management, RCA, change management.</p>
-                </div>
+            <div class="card">
+                <p class="year">2009 - 2016</p>
+                <h3>Hewlett-Packard</h3>
+                <p>Service Delivery Manager / Technical Leader. Led enterprise infrastructure for global clients (Vale, Unilever). WebSphere, WebLogic, JBoss, Apache/Tomcat, IIS.</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <p class="timeline-year">2008 - 2009</p>
-                    <h3 class="timeline-title">iFactory Solutions</h3>
-                    <p class="timeline-desc">Infrastructure Architect. Enterprise content management (Vignette), WebLogic, WebSphere, Apache, Tuxedo.</p>
-                </div>
+            <div class="card">
+                <p class="year">2008 - 2009</p>
+                <h3>iFactory Solutions</h3>
+                <p>Infrastructure Architect. Enterprise content management (Vignette), WebLogic, WebSphere, Apache, Tuxedo.</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <p class="timeline-year">2006 - 2008</p>
-                    <h3 class="timeline-title">EDS (Electronic Data Systems)</h3>
-                    <p class="timeline-desc">Sys Admin Jr. Web/messaging/middleware systems (Linux, Unix, Windows). WebLogic, WebSphere, IIS, Exchange, Lotus Notes.</p>
-                </div>
+            <div class="card">
+                <p class="year">2006 - 2008</p>
+                <h3>EDS</h3>
+                <p>Sys Admin Jr. Web/messaging/middleware systems (Linux, Unix, Windows). WebLogic, WebSphere, IIS, Exchange, Lotus Notes.</p>
             </div>
         </div>
     </section>
 
-    <section class="achievements" id="achievements">
-        <h2 class="section-title"><span>03</span>Achievements</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="achievement-icon">🏆</div>
+    <section class="skills-section" id="skills">
+        <h2 class="section-title"><span>03</span>Skills & Technologies</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">GitHub/GitLab</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">New Relic</span>
+            <span class="skill-tag">Zabbix</span>
+            <span class="skill-tag">Ollama</span>
+            <span class="skill-tag">AIOps</span>
+            <span class="skill-tag">Selenium</span>
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">PowerShell</span>
+        </div>
+    </section>
+
+    <section id="certs">
+        <h2 class="section-title"><span>04</span>Certifications</h2>
+        <div class="certs-grid">
+            <div class="cert-card">
+                <div class="cert-icon">🏆</div>
                 <h3>MSc in DevOps</h3>
-                <p>TU Dublin - Completed 2026. Thesis: AI-driven incident remediation platform (AIOps) integrating Prometheus, Ollama & automation.</p>
+                <p>TU Dublin</p>
             </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🚀</div>
-                <h3>AIOps Platform</h3>
-                <p>Designed & implemented closed-loop remediation platform - automated detection, triage, and incident response to reduce MTTR.</p>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>OpenText Certified Administrator</h3>
+                <p>Media Management</p>
             </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🔍</div>
-                <h3>Custom Search API</h3>
-                <p>Built high-performance DuckDuckGo scraper (1s response, free, unlimited) - replaced expensive SerpAPI for cost savings.</p>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>OpenText Certified Consultant</h3>
+                <p>Documentum 16.7</p>
             </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">☁️</div>
-                <h3>Cloud Certifications</h3>
-                <p>AWS & GCP certified. Hands-on with EC2, RDS, VPC, S3, Kubernetes, Docker, and infrastructure automation.</p>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>Level 7 Certificate</h3>
+                <p>Emerging Digital Technologies</p>
             </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🤖</div>
-                <h3>AI & Automation Expert</h3>
-                <p>Local LLMs (Ollama), event-driven remediation workflows, Selenium web automation, Python/Bash scripting.</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">📚</div>
-                <h3>Author</h3>
-                <p>Writing "From Zero to Hero" - practical guide to DevOps career progression and troubleshooting methodology.</p>
-            </div>
+        </div>
     </section>
 
     <section class="book" id="book">
-        <h2 class="section-title"><span>04</span>My Book</h2>
+        <h2 class="section-title"><span>05</span>My Book</h2>
         <div class="book-content">
             <div class="book-cover">
                 <h2>From Zero<br>to Hero</h2>
                 <p class="author">Konrad Soares</p>
             </div>
-            <p class="book-desc">A practical guide to building a successful career in technology. Learn from real-world experiences, troubleshooting techniques, and the path from junior engineer to leader.</p>
-            <p class="book-desc">Part memoir, part career guide - everything I wish I knew when starting out.</p>
-            <a href="#contact" class="cta-btn">Get Early Access</a>
+            <p>A practical guide to building a successful career in technology. Part memoir, part career guide - everything I wish I knew when starting out.</p>
+            <a href="#contact" style="display:inline-block;padding:0.8rem 2rem;background:var(--gold);color:var(--primary);text-decoration:none;font-weight:600;border-radius:50px;text-transform:uppercase;letter-spacing:1px;font-size:0.85rem;">Get Early Access</a>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title"><span>05</span>Let's Connect</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">Interested in collaboration, speaking, or just want to say hi?</p>
+        <h2 class="section-title"><span>06</span>Let's Connect</h2>
         <div class="contact-links">
             <a href="mailto:konrad.soares@gmail.com">Email</a>
             <a href="https://www.linkedin.com/in/konrad-soares">LinkedIn</a>
@@ -668,44 +485,5 @@
     <footer>
         <p>© 2026 Konrad Soares. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.timeline-content, .achievement-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Nav background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(26, 26, 46, 0.98)';
-            } else {
-                nav.style.background = 'rgba(26, 26, 46, 0.95)';
-            }
-        });
-    </script>
 </body>
 </html>
