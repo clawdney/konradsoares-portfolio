@@ -249,34 +249,43 @@
         }
 
         .timeline-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 1rem;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--secondary);
         }
 
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
+        .timeline-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .timeline-container::-webkit-scrollbar-track {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+
+        .timeline-container::-webkit-scrollbar-thumb {
             background: var(--gold);
-            opacity: 0.3;
+            border-radius: 10px;
         }
 
         .timeline-item {
-            display: flex;
-            justify-content: flex-end;
-            padding-right: calc(50% + 2rem);
-            margin-bottom: 3rem;
+            flex: 0 0 300px;
             position: relative;
+            padding: 1.5rem;
+            background: var(--secondary);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
         }
 
-        .timeline-item:nth-child(even) {
-            justify-content: flex-start;
-            padding-right: 0;
-            padding-left: calc(50% + 2rem);
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
         }
 
         .timeline-content {
