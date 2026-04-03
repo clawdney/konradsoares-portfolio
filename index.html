@@ -266,35 +266,27 @@
             transform: rotate(180deg);
         }
 
-        .certs-grid.collapsed, .skills-grid.collapsed {
-            display: grid;
-        }
-
-        .certs-grid.collapsed, .skills-grid.collapsed {
-            margin: 0;
-            padding: 0;
-            gap: 0;
-        }
-
-        .certs-grid.collapsed .cert-card, .skills-grid.collapsed .skill-tag {
+        /* Collapsed state - hidden */
+        .certs-grid.collapsed .cert-card,
+        .skills-grid.collapsed .skill-tag {
             display: none;
         }
 
-        .certs-grid.expanded .cert-card, .skills-grid.expanded .skill-tag {
-            display: block;
-        }
-
-        .skills-grid.collapsed {
-            display: flex;
-        }
-
-        .skills-grid.collapsed .skill-tag {
+        /* Expanded state - visible */
+        .certs-grid.expanded .cert-card,
+        .skills-grid.expanded .skill-tag {
             display: inline-block;
         }
 
-        /* Collapsed state - no gap */
-        .certs-grid.collapsed {
+        .certs-grid.collapsed,
+        .skills-grid.collapsed,
+        .cards-grid.collapsed {
             display: none;
+        }
+
+        .certs-grid.expanded,
+        .skills-grid.expanded {
+            display: grid;
         }
 
         .cert-card p {
@@ -439,7 +431,10 @@
 
     <section id="journey">
         <h2 class="section-title"><span>02</span>My Journey</h2>
-        <div class="cards-grid">
+        <div class="section-toggle" onclick="var g=this.nextElementSibling;var t=this.querySelector('.toggle-text');if(g.classList.contains('expanded')){g.classList.remove('expanded');g.classList.add('collapsed');this.classList.remove('open');t.textContent='Show Timeline'}else{g.classList.remove('collapsed');g.classList.add('expanded');this.classList.add('open');t.textContent='Hide Timeline'}">
+            <span class="arrow">▶</span> <span class="toggle-text">Show Timeline</span>
+        </div>
+        <div class="cards-grid collapsed">
             <div class="card">
                 <p class="year">2021 - Present</p>
                 <h3>OpenText Ireland</h3>
