@@ -241,6 +241,62 @@
             margin-bottom: 0.25rem;
         }
 
+        /* Collapsible Sections */
+        .section-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .section-toggle:hover {
+            color: var(--text);
+        }
+
+        .section-toggle .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .section-toggle.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .certs-grid.collapsed, .skills-grid.collapsed {
+            display: grid;
+        }
+
+        .certs-grid.collapsed, .skills-grid.collapsed {
+            margin: 0;
+            padding: 0;
+            gap: 0;
+        }
+
+        .certs-grid.collapsed .cert-card, .skills-grid.collapsed .skill-tag {
+            display: none;
+        }
+
+        .certs-grid.expanded .cert-card, .skills-grid.expanded .skill-tag {
+            display: block;
+        }
+
+        .skills-grid.collapsed {
+            display: flex;
+        }
+
+        .skills-grid.collapsed .skill-tag {
+            display: inline-block;
+        }
+
+        /* Collapsed state - no gap */
+        .certs-grid.collapsed {
+            display: none;
+        }
+
         .cert-card p {
             color: var(--text-muted);
             font-size: 0.8rem;
@@ -350,6 +406,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#certs">Certs</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
             <li><a href="#book">Book</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -374,12 +431,9 @@
             <p>Technical school in data processing changed everything. I got my hands on an XT286, then a 386 with Soundblaster multimedia and a US Robotics modem. Hardware troubleshooting, building systems, learning Clipper, COBOL, dBase - this is where the foundation was laid.</p>
             <p>While studying network topology, I discovered the company's network was still in star topology using old cabling - disconnecting one computer would bring down the entire network. But the real breakthrough was finding a flaw in their Clipper system: pressing enter repeatedly during database append operations and hitting pause would crash the entire company-wide system. I reported it, got promoted, and learned my first lesson in cybersecurity.</p>
             <p>Those late-night hours had another benefit too - I figured out how to hack local ISPs to get free internet access after midnight when phone calls were cheaper. Downloading MP3s on Napster became my reward for studying hard.</p>
-            <p>While studying network topology, I discovered the company's network was still in star topology using old cabling - disconnecting one computer would bring down the entire network. But the real breakthrough was finding a flaw in their Clipper system: pressing enter repeatedly during database append operations and hitting pause would crash the entire company-wide system. I reported it, got promoted, and learned my first lesson in cybersecurity.</p>
-            <p>Those late-night hours had another benefit too - I figured out how to hack local ISPs to get free internet access after midnight when phone calls were cheaper. Downloading MP3s on Napster became my reward for studying hard.</p>
             <p>From there, I moved into Delphi and ColdFusion development, then Windows infrastructure. An MCSA certification made me the go-to person for Microsoft troubleshooting. The journey continued into Linux and middleware.</p>
             <p style="margin-top:1.5rem;color:var(--text);font-weight:500;">Today, as Principal Cloud Specialist at OpenText, I blend technical SaaS support, DevOps, and cloud engineering - driven by a love for complex troubleshooting, helping customers succeed, and turning chaos into reliable systems.</p>
             <p style="margin-top:1rem;color:var(--gold);font-weight:500;">20+ years later, the curiosity still burns.</p>
-            
         </div>
     </section>
 
@@ -420,7 +474,10 @@
 
     <section class="skills-section" id="skills">
         <h2 class="section-title"><span>03</span>Skills & Technologies</h2>
-        <div class="skills-grid">
+        <div class="section-toggle" onclick="var g=this.nextElementSibling;var t=this.querySelector('.toggle-text');if(g.classList.contains('expanded')){g.classList.remove('expanded');g.classList.add('collapsed');this.classList.remove('open');t.textContent='Show Skills'}else{g.classList.remove('collapsed');g.classList.add('expanded');this.classList.add('open');t.textContent='Hide Skills'}">
+            <span class="arrow">▶</span> <span class="toggle-text">Show Skills</span>
+        </div>
+        <div class="skills-grid collapsed">
             <span class="skill-tag" style="background:rgba(233,69,96,0.2);border-color:var(--accent);">Node.js</span>
             <span class="skill-tag" style="background:rgba(233,69,96,0.2);border-color:var(--accent);">TypeScript</span>
             <span class="skill-tag" style="background:rgba(233,69,96,0.2);border-color:var(--accent);">Python</span>
@@ -461,7 +518,10 @@
 
     <section id="education">
         <h2 class="section-title"><span>04</span>Education</h2>
-        <div class="certs-grid">
+        <div class="section-toggle" onclick="var g=this.nextElementSibling;var t=this.querySelector('.toggle-text');if(g.classList.contains('expanded')){g.classList.remove('expanded');g.classList.add('collapsed');this.classList.remove('open');t.textContent='Show Education'}else{g.classList.remove('collapsed');g.classList.add('expanded');this.classList.add('open');t.textContent='Hide Education'}">
+            <span class="arrow">▶</span> <span class="toggle-text">Show Education</span>
+        </div>
+        <div class="certs-grid collapsed">
             <div class="cert-card">
                 <div class="cert-icon">🎓</div>
                 <h3>MSc in DevOps</h3>
@@ -487,32 +547,114 @@
 
     <section id="certs">
         <h2 class="section-title"><span>05</span>Certifications</h2>
-        <div class="certs-grid">
+        <div class="section-toggle" onclick="var g=this.nextElementSibling;var t=this.querySelector('.toggle-text');if(g.classList.contains('expanded')){g.classList.remove('expanded');g.classList.add('collapsed');this.classList.remove('open');t.textContent='Show Certifications'}else{g.classList.remove('collapsed');g.classList.add('expanded');this.classList.add('open');t.textContent='Hide Certifications'}">
+            <span class="arrow">▶</span> <span class="toggle-text">Show Certifications</span>
+        </div>
+        <div class="certs-grid collapsed">
             <div class="cert-card">
                 <div class="cert-icon">📜</div>
-                <h3>OpenText Certified Administrator</h3>
-                <p>Media Management</p>
+                <h3>OpenText Certified Analyst</h3>
+                <p>Exstream Design and Production</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>OpenText Certified Business User</h3>
+                <p>OpenText™ Content Management</p>
             </div>
             <div class="cert-card">
                 <div class="cert-icon">📜</div>
                 <h3>OpenText Certified Administrator</h3>
-                <p>AppWorks Platform</p>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">📜</div>
-                <h3>OpenText Certified Consultant</h3>
-                <p>Documentum 16.7</p>
+                <p>TeamSite</p>
             </div>
             <div class="cert-card">
                 <div class="cert-icon">📜</div>
                 <h3>OpenText Certified Business Administrator</h3>
-                <p>Extended ECM for SAP</p>
+                <p>OpenText™ Core Archive for SAP Solutions</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>OpenText Certified Business Administrator</h3>
+                <p>Extended ECM for SAP SuccessFactors</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>OpenText Knowledge</h3>
+                <p>SAP Agent Onboarding - GTS Academy</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>OpenText Knowledge</h3>
+                <p>Extended ECM Intermediate Training - GTS Academy</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>OpenText Knowledge</h3>
+                <p>Introduction to Kubernetes - GTS Academy</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>LFS169</h3>
+                <p>Introduction to GitOps - Linux Foundation</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>LFS250</h3>
+                <p>Kubernetes and Cloud Native Essentials</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>IBM</h3>
+                <p>Cognos BI</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>IBM</h3>
+                <p>WebSphere 6.5</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>Microsoft</h3>
+                <p>MCSA</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <h3>Microsoft</h3>
+                <p>MCDST</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies">
+        <h2 class="section-title"><span>06</span>Hobbies & Interests</h2>
+        <div class="section-toggle" onclick="var g=this.nextElementSibling;var t=this.querySelector('.toggle-text');if(g.classList.contains('expanded')){g.classList.remove('expanded');g.classList.add('collapsed');this.classList.remove('open');t.textContent='Show Hobbies'}else{g.classList.remove('collapsed');g.classList.add('expanded');this.classList.add('open');t.textContent='Hide Hobbies'}">
+            <span class="arrow">▶</span> <span class="toggle-text">Show Hobbies</span>
+        </div>
+        <div class="certs-grid collapsed">
+            <div class="cert-card">
+                <div class="cert-icon">🎮</div>
+                <h3>Gaming</h3>
+                <p>Strategic PC games - FPS, RTS, and RPGs</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🎸</div>
+                <h3>Music</h3>
+                <p>Self-taught musician - guitar, keyboard, and music production</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🤖</div>
+                <h3>Robotics & Electronics</h3>
+                <p>Arduino projects, building and programming custom devices</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🖨️</div>
+                <h3>3D Printing</h3>
+                <p>Designing and printing functional parts and prototypes</p>
             </div>
         </div>
     </section>
 
     <section class="book" id="book">
-        <h2 class="section-title"><span>06</span>My Book</h2>
+        <h2 class="section-title"><span>07</span>My Book</h2>
         <div class="book-content">
             <div class="book-cover">
                 <h2>From Zero<br>to Hero</h2>
@@ -524,7 +666,7 @@
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title"><span>07</span>Let's Connect</h2>
+        <h2 class="section-title"><span>08</span>Let's Connect</h2>
         <div class="contact-links">
             <a href="mailto:konrad.soares@gmail.com">Email</a>
             <a href="https://www.linkedin.com/in/konrad-soares">LinkedIn</a>
